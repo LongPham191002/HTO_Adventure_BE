@@ -24,15 +24,10 @@ try {
 // Đổi hẳn sang cổng 8888 (Cổng này máy Mac ít khi chiếm dụng)
 const PORT = 8888; 
 
-const server = app.listen(PORT, () => {
+// Thêm '0.0.0.0' để server chấp nhận kết nối từ bên ngoài (Nginx)
+const server = app.listen(PORT, '0.0.0.0', () => {
   console.log('-------------------------------------------');
   console.log(`🚀 SERVER HITO ĐÃ KHÓA CỔNG: ${PORT}`);
-  console.log(`📍 API: http://localhost:${PORT}/api/v1/submit`);
-  console.log('⏳ TRẠNG THÁI: ĐANG TREO MÁY ĐỢI DỮ LIỆU...');
+  console.log(`📍 API: http://api-game.htogroup.com.vn/api/v1/submit`);
   console.log('-------------------------------------------');
 });
-
-// "MỎ NEO": ÉP NODEJS KHÔNG ĐƯỢC THOÁT
-setInterval(() => {
-    // Hàm này chạy không làm gì cả, chỉ để giữ tiến trình luôn sống
-}, 1000 * 60 * 60);
